@@ -3,6 +3,7 @@ services:
   db:
     image: postgres
     restart: always
+    container_name: postgres
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
@@ -12,6 +13,7 @@ services:
 
   adminer:
     image: adminer
+    container_name: adminer
     restart: always
     ports:
       - 8080:8080
@@ -20,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: django_admin
+    container_name: django
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
