@@ -23,15 +23,11 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: django
-    command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
     depends_on:
       - db, adminer
 

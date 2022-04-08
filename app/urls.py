@@ -1,4 +1,4 @@
-"""payment URL Configuration
+"""app URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('payment.core.urls', namespace='payment.core')),
+    path('', include('app.core.urls', namespace='app.core')),
     path('admin/', admin.site.urls),
 ]

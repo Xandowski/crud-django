@@ -1,4 +1,4 @@
-# A crud in Django using docker
+# Sample docker django project with postgres and adminer
 
 clone the repository
 
@@ -18,11 +18,29 @@ then generate the .env file
 python3 contrib/env_gen.py
 ```
 
-and do the migrate
+define the postgres variables on .env file.:
 
 ```
-python3 manage.py migrate
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
+POSTGRES_DB=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=postgres
 ```
+**obs:** if you are going to use other values, you need to change on docker-compose file:
+
+```
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+```
+
 
 the folder structure should be look like this:
 
@@ -32,12 +50,11 @@ the folder structure should be look like this:
 ├── README.md
 ├── contrib
 │   └── env_gen.py
-├── db.sqlite3
 ├── docker-compose.yml
 ├── docs
 │   └── README.md
 ├── manage.py
-├── payment
+├── app
 │   ├── __init__.py
 │   ├── __pycache__
 │   │   ├── __init__.cpython-310.pyc
