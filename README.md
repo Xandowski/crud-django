@@ -3,7 +3,7 @@
 clone the repository
 
 ```
-git clone https://github.com/Xandowski/crud-django.git
+git clone https://github.com/Xandowski/sample-django-postgres-docker.git
 ```
 optional: create a viurtalenv
 
